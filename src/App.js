@@ -106,6 +106,8 @@ function App() {
     },
   ];
 
+  
+
   function handleAnswerButtonClick(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
@@ -134,20 +136,17 @@ function App() {
       {showResults ? (
         <div>
           <h2 style={{color:'yellow'}}>Results:</h2>
-          <p style={{color:'Green'}}>You scored {score} out of {questions.length}.</p>
+          <p style={{color:'Green', fontSize:"25px"}}>You scored {score} out of {questions.length}.</p>
           <button className="option" onClick={handleRestartButtonClick}>Restart Quiz</button>
         </div>
       ) : (
         <div>
-          <h2 style={{color:'yellow',textAlign:'center'}}>Question {questionIndex + 1}</h2>
-          <p style={{color:'red'}}>{questions[questionIndex].questionText}</p>
+          <h2 style={{color:'yellow'}}>Question {questionIndex + 1}</h2>
+          <p style={{color:'red', fontSize:"30px"}}>{questions[questionIndex].questionText}</p>
           {questions[questionIndex].answerOptions.map((answerOption, index) => (
+
             <button className="option" key={index} onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>
               {answerOption.answerText}
-               <span></span>
-               <span></span>
-               <span></span>
-               <span></span>
 
             </button>
           ))}
